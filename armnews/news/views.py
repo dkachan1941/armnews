@@ -5,6 +5,7 @@ import explore
 from forms import CommentForm
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 	qs = News.objects.all()
@@ -14,6 +15,7 @@ def post_detail(request,pk):
 	qs = News.objects.filter(id=pk)
 	return render(request, 'news/post_detail.html', {'posts': qs})
 
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(News, pk=pk)
     if request.method == "POST":

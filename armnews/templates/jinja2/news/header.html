@@ -13,6 +13,19 @@
 <body class="body" style="background-color:#f6f6f6">
 	<nav class="navbar navbar-default info">
 	  <div class="container-fluid">
+
+	  <div class="page-header">
+
+        {% if request.user.is_authenticated %}
+
+        <p class="top-menu">Привет, {{ request.user.username }}<small>(<a href="{{ url('accounts/login/') }}">Log out</a>)</small></p>
+        {% else %}
+        <a href="{{ url( 'accounts/login/') }}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif %}
+        <h1><a href="{{ url( 'index') }}">События Армрестлинга</a></h1>
+    </div>
+
+
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">Новости армрестлинга</a>
 	    </div>

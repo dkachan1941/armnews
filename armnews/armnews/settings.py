@@ -130,3 +130,7 @@ os.path.join(BASE_DIR, 'static/'),
 )
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/news'
+
+# ROOT_URLCONF = 'armnews.urls'
