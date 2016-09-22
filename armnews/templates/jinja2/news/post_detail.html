@@ -2,13 +2,14 @@
 
 {% block content %}
 
-<p>Welcome</p>
-
-{% for post in items %}
+{% for post in posts %}
   <h3>Title: {{post.title}}</h3>
   <h6>Text: {{post.text}}</h6>
   <h6>Date: {{post.date}}</h6>
   <hr>
+
+  <a class="btn btn-default" href="{{ url('add_comment_to_post', args=[post.pk]) }}">Добавить комментарий</a>
+
   	{% if post.comments.all()|length > 0 %}
 		{% for comment in post.comments.all() %}
 		    <div class="comment">
@@ -23,3 +24,6 @@
 {% endfor %}
 
 {% endblock %}
+
+
+
